@@ -31,7 +31,7 @@ spec:
             port: 5432
           initialDelaySeconds: 5
           timeoutSeconds: 1
-          failureThr$shold: 10
+          failureThreshold: 10
           periodSeconds: 3
         resources: 
           limits: 
