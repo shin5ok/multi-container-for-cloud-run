@@ -20,4 +20,5 @@ make spanner repo
 make all
 ```
 
-4. Clean up your project when you end up
+4. Clean up  
+Make sure remove your project when your test end up.
