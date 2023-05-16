@@ -1,0 +1,48 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata: 
+  annotations: 
+    run.googleapis.com/launch-stage: BETA
+  name: my-php-sample
+spec: 
+  template: 
+    metadata: 
+      annotations: 
+        run.googleapis.com/execution-environment: gen1 #or gen2
+        run.googleapis.com/container-dependencies: '{"web":["php","pgadapter"]}'
+    spec: 
+      containers: 
+      - image: asia-northeast1-docker.pkg.dev/shingo-ar-rendering0509/my-app/my-nginx
+        name: web
+        ports: 
+        - containerPort: 80
+        volumeMounts: 
+        - mountPath: /var/share
+          name: share
+      - image: gcr.io/cloud-spanner-pg-adapter/pgadapter
+        name: pgadapter
+        args:
+        - "-p shingo-ar-rendering0509"
+        - "-i test-instance"
+        - "-d game"
+        resources: 
+          limits: 
+            cpu: "1.0"
+            memory: 512M
+        volumeMounts: 
+        - mountPath: /var/share
+          name: share
+      - image: asia-northeast1-docker.pkg.dev/shingo-ar-rendering0509/my-app/my-php
+        name: php
+        resources: 
+          limits: 
+            cpu: "1.0"
+            memory: 512M
+        volumeMounts: 
+        - mountPath: /var/share
+          name: share
+      volumes:
+      - name: share
+        emptyDir: 
+          medium: Memory
+          sizeLimit: 64M

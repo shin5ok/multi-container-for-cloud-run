@@ -2,15 +2,19 @@ version: '3'
 
 services:
   web:
-    image: gcr.io/${PROJECT}/my-nginx
+    image: asia-northeast1-docker.pkg.dev/shingo-ar-rendering0509/my-app/my-nginx
     ports:
       - '8001:80'
     # extra_hosts:
     # - php:127.0.0.1
     # - pgadapter:127.0.0.1
+    volumes:
+      - share:/var/share
 
   php:
-    image: my-php
+    image: asia-northeast1-docker.pkg.dev/shingo-ar-rendering0509/my-app/my-php
+    volumes:
+      - share:/var/share
 
   pgadapter:
     image: "gcr.io/cloud-spanner-pg-adapter/pgadapter"
@@ -20,3 +24,6 @@ services:
       - -d game
     ports:
       - 5432:5432
+
+volumes:
+  share:
