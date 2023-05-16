@@ -25,6 +25,14 @@ spec:
         - "-p ${GOOGLE_CLOUD_PROJECT}"
         - "-i test-instance"
         - "-d game"
+        - "-x"
+        startupProbe:
+          tcpSocket:
+            port: 5432
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          failureThr$shold: 10
+          periodSeconds: 1
         resources: 
           limits: 
             cpu: "1.0"
