@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    image: gcr.io/${PROJECT}/my-nginx
+    ports:
+      - '8001:80'
+    # extra_hosts:
+    # - php:127.0.0.1
+    # - pgadapter:127.0.0.1
+
+  php:
+    image: my-php
+
+  pgadapter:
+    image: "gcr.io/cloud-spanner-pg-adapter/pgadapter"
+    command:
+      - -p ${PROJECT}
+      - -i test-instance
+      - -d game
+    ports:
+      - 5432:5432
