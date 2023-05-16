@@ -12,8 +12,7 @@ gcloud auth login --update-adc
 
 2. Create your Artifact Registory, and prepare Cloud Spanner table
 ```
-make repo
-make spanner
+make spanner repo
 ```
 
 3. Build containers and deploy them to Cloud Run service
