@@ -35,8 +35,8 @@ spec:
           periodSeconds: 3
         resources: 
           limits: 
-            cpu: "1.0"
-            memory: 512M
+            cpu: "1"
+            memory: 256Mi
         volumeMounts: 
         - mountPath: /var/share
           name: share
@@ -44,8 +44,8 @@ spec:
         name: php
         resources: 
           limits: 
-            cpu: "1.0"
-            memory: 512M
+            cpu: "1"
+            memory: 512Mi
         volumeMounts: 
         - mountPath: /var/share
           name: share
