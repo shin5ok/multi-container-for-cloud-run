@@ -1,4 +1,4 @@
-## Test yourself
+## Test it yourself
 
 1. Prepare environment  
 Set environment variables.
