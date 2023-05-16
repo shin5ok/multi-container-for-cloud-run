@@ -3,7 +3,7 @@ kind: Service
 metadata: 
   annotations: 
     run.googleapis.com/launch-stage: BETA
-  name: my-php-sample
+  name: my-php-sample${RAND}
 spec: 
   template: 
     metadata: 
@@ -12,7 +12,7 @@ spec:
         run.googleapis.com/container-dependencies: '{"web":["php","pgadapter"]}'
     spec: 
       containers: 
-      - image: asia-northeast1-docker.pkg.dev/shingo-ar-rendering0509/my-app/my-nginx
+      - image: asia-northeast1-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/my-app/my-nginx
         name: web
         ports: 
         - containerPort: 80
@@ -22,7 +22,7 @@ spec:
       - image: gcr.io/cloud-spanner-pg-adapter/pgadapter
         name: pgadapter
         args:
-        - "-p shingo-ar-rendering0509"
+        - "-p ${GOOGLE_CLOUD_PROJECT}"
         - "-i test-instance"
         - "-d game"
         resources: 
@@ -32,7 +32,7 @@ spec:
         volumeMounts: 
         - mountPath: /var/share
           name: share
-      - image: asia-northeast1-docker.pkg.dev/shingo-ar-rendering0509/my-app/my-php
+      - image: asia-northeast1-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/my-app/my-php
         name: php
         resources: 
           limits: 
