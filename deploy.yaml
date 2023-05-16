@@ -3,13 +3,13 @@ kind: Service
 metadata: 
   annotations: 
     run.googleapis.com/launch-stage: BETA
-  name: my-php-sample${RAND}
+  name: my-php-sample
 spec: 
   template: 
     metadata: 
       annotations: 
         run.googleapis.com/execution-environment: gen1 #or gen2
-        run.googleapis.com/container-dependencies: '{"web":["php","pgadapter"]}'
+        run.googleapis.com/container-dependencies: '{"web":["pgadapter", "php"]}'
     spec: 
       containers: 
       - image: asia-northeast1-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/my-app/my-nginx
@@ -32,7 +32,7 @@ spec:
           initialDelaySeconds: 5
           timeoutSeconds: 1
           failureThr$shold: 10
-          periodSeconds: 1
+          periodSeconds: 3
         resources: 
           limits: 
             cpu: "1.0"
@@ -53,4 +53,4 @@ spec:
       - name: share
         emptyDir: 
           medium: Memory
-          sizeLimit: 64M
+          sizeLimit: 8M
