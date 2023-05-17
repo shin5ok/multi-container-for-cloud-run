@@ -9,11 +9,11 @@ spec:
     metadata: 
       annotations: 
         run.googleapis.com/execution-environment: gen1 #or gen2
-        run.googleapis.com/container-dependencies: '{"web":["pgadapter", "php"]}'
+        run.googleapis.com/container-dependencies: '{"proxy":["pgadapter", "php"]}'
     spec: 
       containers: 
       - image: asia-northeast1-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/my-app/my-nginx
-        name: web
+        name: proxy
         ports: 
         - containerPort: 80
         volumeMounts: 
