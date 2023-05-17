@@ -30,13 +30,12 @@ make all
 
 ### 4. Just try
 Try to access the url of Cloud Run service.  
-You would be see 403 because of enabling IAM auth.
 
 - PHP Info  
   ```https://<your Cloud Run URL>/```
 - DB Communication  
   ```https://<your Cloud Run URL>/db.php```  
-  Note: It would be very slow because we use Cloud Spanner Trial Instance as minimum scale.
+  Note: The response from the site would be very slow because we use Cloud Spanner Trial Instance as minimum scale.
 
 
 ### 5. Clean up  

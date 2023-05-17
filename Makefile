@@ -30,3 +30,7 @@ php:
 .PHONY: deploy
 deploy:
 	envsubst < deploy.yaml | gcloud run services replace - --region=asia-northeast1
+	gcloud run services add-iam-policy-binding my-php-sample \
+	--region=asia-northeast1 \
+    --member="allUsers" \
+    --role="roles/run.invoker"
