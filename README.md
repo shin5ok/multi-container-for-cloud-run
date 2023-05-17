@@ -10,6 +10,11 @@ Log in your Google Account for Google Cloud Project.
 gcloud auth login --update-adc
 ```
 
+Enable some APIs in advance.
+```
+gcloud services enable run.googleapis.com spanner.googleapis.com
+```
+
 2. Create your Artifact Registory, and prepare Cloud Spanner table  
 You may be asked to enable some APIs.
 ```

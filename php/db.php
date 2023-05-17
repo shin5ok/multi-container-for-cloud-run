@@ -4,7 +4,7 @@ $dbconn = pg_connect("host=localhost dbname=game")
     or die('Could not connect: ' . pg_last_error());
 
 // Performing SQL query
-$query = 'SELECT * FROM authors';
+$query = 'SELECT * FROM players';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
 // Printing results in HTML
