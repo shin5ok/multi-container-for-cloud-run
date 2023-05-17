@@ -53,4 +53,4 @@ spec:
       - name: share
         emptyDir: 
           medium: Memory
-          sizeLimit: 8M
+          sizeLimit: 8Mi
