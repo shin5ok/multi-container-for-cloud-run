@@ -10,7 +10,8 @@ Log in your Google Account for Google Cloud Project.
 gcloud auth login --update-adc
 ```
 
-2. Create your Artifact Registory, and prepare Cloud Spanner table
+2. Create your Artifact Registory, and prepare Cloud Spanner table  
+You may be asked to enable some APIs.
 ```
 make spanner repo
 ```

@@ -14,8 +14,8 @@ spanner:
 	gcloud spanner instances create test-instance --config=regional-us-east5 \
     --instance-type=free-instance --description="Trial Instance"
 	gcloud spanner databases create game --instance=test-instance
-	gcloud spanner databases ddl update game --ddl='create table test1(id varchar(64) primary key, name varchar(128))' --instance=test-instance
-	gcloud spanner databases execute-sql --instance=test-instance --sql="insert into authors values('test','ok')" game
+	gcloud spanner databases ddl update game --ddl='create table players(id string(64), name string(128)) primary key (id)' --instance=test-instance
+	gcloud spanner databases execute-sql --instance=test-instance --sql="insert into players(id, name) values('test','ok')" game
 
 .PHONY: web
 web:
