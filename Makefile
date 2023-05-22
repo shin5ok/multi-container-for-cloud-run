@@ -10,7 +10,7 @@ repo:
 
 .PHONY: spanner
 spanner:
-	@echo "Taking a while because deploying instance is minimum scale as for trial one"
+	@echo "Taking a while because using instance is minimum scale for trial one"
 	gcloud spanner instances create test-instance --config=regional-us-east5 \
     --instance-type=free-instance --description="Trial Instance"
 	gcloud spanner databases create game --instance=test-instance --database-dialect=POSTGRESQL
