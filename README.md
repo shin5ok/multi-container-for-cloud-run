@@ -1,4 +1,8 @@
 ## Test it yourself
+You need something as below,
+- Google Cloud Project
+- [gcloud](https://cloud.google.com/sdk/docs/install?hl=ja)
+- Docker
 
 ### 1. Prepare environment  
 - Set environment variables.  
