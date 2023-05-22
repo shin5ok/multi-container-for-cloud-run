@@ -28,7 +28,7 @@ make spanner repo
 make all
 ```
 
-### 4. Just try
+### 4. Just try it
 Try to access the url of Cloud Run service.  
 
 - PHP Info  
