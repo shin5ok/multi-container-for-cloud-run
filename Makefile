@@ -2,11 +2,11 @@ REGION := asia-northeast1
 BASE_REPO := $(REGION)-docker.pkg.dev/$(GOOGLE_CLOUD_PROJECT)/my-app
 
 .PHONY: all
-all: web php deploy
+all: repo web php deploy
 
 .PHONY: repo
 repo:
-	gcloud artifacts repositories create --repository-format=docker --location=$(REGION) my-app
+	gcloud artifacts repositories create --repository-format=docker --location=$(REGION) my-app > /dev/null 2>&1 || true
 
 .PHONY: spanner
 spanner:
