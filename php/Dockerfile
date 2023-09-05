@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.2-fpm
 
 RUN apt-get update && apt-get -y install libpq-dev && \
     docker-php-ext-install pgsql
